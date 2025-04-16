@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Quality Monitoring System</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Chart.js for graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Socket.IO client -->
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Water Quality Monitoring System</h1>
+        <div class="connection-status">
+            <span id="status-indicator"></span>
+            <span id="status-text">Connecting...</span>
+        </div>
+    </header>
+
+    <main>
+        <section class="control-panel">
+            <h2>Control Panel</h2>
+            <div class="control-button">
+                <button id="toggle-component" class="btn">Activate Component</button>
+            </div>
+            <div class="last-update">
+                Last Update: <span id="last-update-time">Never</span>
+            </div>
+        </section>
+
+        <section class="sensor-grid">
+            <!-- Temperature -->
+            <div class="sensor-card">
+                <h3>Temperature</h3>
+                <div class="sensor-value" id="temperature-value">-- °C</div>
+                <div class="chart-container">
+                    <canvas id="temperature-chart"></canvas>
+                </div>
+            </div>
+
+            <!-- Turbidity -->
+            <div class="sensor-card">
+                <h3>Turbidity</h3>
+                <div class="sensor-value" id="turbidity-value">-- NTU</div>
+                <div class="chart-container">
+                    <canvas id="turbidity-chart"></canvas>
+                </div>
+            </div>
+
+            <!-- pH -->
+            <div class="sensor-card">
+                <h3>pH Level</h3>
+                <div class="sensor-value" id="ph-value">--</div>
+                <div class="chart-container">
+                    <canvas id="ph-chart"></canvas>
+                </div>
+            </div>
+
+            <!-- TDS -->
+            <div class="sensor-card">
+                <h3>TDS</h3>
+                <div class="sensor-value" id="tds-value">-- ppm</div>
+                <div class="chart-container">
+                    <canvas id="tds-chart"></canvas>
+                </div>
+            </div>
+
+            <!-- Flow Rate -->
+            <div class="sensor-card">
+                <h3>Flow Rate</h3>
+                <div class="sensor-value" id="flow-rate-value">-- L/min</div>
+                <div class="chart-container">
+                    <canvas id="flow-rate-chart"></canvas>
+                </div>
+            </div>
+
+            <!-- MQ9 Gas -->
+            <div class="sensor-card">
+                <h3>MQ9 Gas</h3>
+                <div class="sensor-value" id="mq9-value">-- ppm</div>
+                <div class="chart-container">
+                    <canvas id="mq9-chart"></canvas>
+                </div>
+            </div>
+
+            <!-- MQ135 Gas -->
+            <div class="sensor-card">
+                <h3>MQ135 Gas</h3>
+                <div class="sensor-value" id="mq135-value">-- ppm</div>
+                <div class="chart-container">
+                    <canvas id="mq135-chart"></canvas>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Water Quality Monitoring System</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
